@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">xxutep</string>
+    <string name="act_add">Add</string>
+    <string name="act_sub">Sub</string>
+    <string name="act_mul">Mul</string>
+    <string name="act_div">Div</string>
+    <string name="info_result">Result:</string>
+    <string name="info_zero">0</string>
+    <string name="inf_value_a">Num A:</string>
+    <string name="inf_value_b">Num B:</string>
+</resources>
