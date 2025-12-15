@@ -30,4 +30,23 @@ public interface CalculatorService {
             @Query("a") String a,
             @Query("b") String b
     );
+    @GET("calculator/sin")
+    Call<String> sin(
+            @Query("a") String a
+    );
+
+    @GET("calculator/cos")
+    Call<String> cos(
+            @Query("a") String a
+    );
+
+    @GET("calculator/tan")
+    Call<String> tan(
+            @Query("a") String a
+    );
+
+    @GET("calculator/sqrt")
+    Call<String> sqrt(
+            @Query("a") String a
+    );
 }

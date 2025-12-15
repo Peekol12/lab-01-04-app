@@ -96,6 +96,44 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_sin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="on_button_click"
+            android:text="@string/act_sin" />
+
+        <Button
+            android:id="@+id/button_cos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="on_button_click"
+            android:text="@string/act_cos" />
+
+        <Button
+            android:id="@+id/button_tan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="on_button_click"
+            android:text="@string/act_tan" />
+
+        <Button
+            android:id="@+id/button_kor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="on_button_click"
+            android:text="@string/act_kor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="30px"
         android:gravity="center"
         android:orientation="horizontal">

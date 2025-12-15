@@ -23,6 +23,9 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     Button btn_add, btn_sub, btn_mul, btn_div;
+
+    Button btn_sin, btn_cos, btn_tan, btn_sqrt;
+
     EditText txt_a, txt_b;
     TextView txt_res;
 
@@ -45,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        btn_sin = findViewById(R.id.button_sin);
+        btn_cos = findViewById(R.id.button_cos);
+        btn_tan = findViewById(R.id.button_tan);
+        btn_sqrt = findViewById(R.id.button_kor);
+
 
         btn_add = findViewById(R.id.btn_add);
         btn_sub = findViewById(R.id.btn_sub);
@@ -64,27 +72,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void on_button_click(View v) {
+
         String a = txt_a.getText().toString();
-        String b = txt_b.getText().toString();
+        Call<String> call = null;
 
-        Call<String> func = null;
+        if (v.getId() == R.id.btn_add)
+            call = service.add(a, txt_b.getText().toString());
 
-        if (v.getId() == R.id.btn_add) {
-            func = service.add(a, b);
-        } else if (v.getId() == R.id.btn_sub) {
-            func = service.subtract(a, b);
-        } else if (v.getId() == R.id.btn_mul) {
-            func = service.multiply(a, b);
-        } else if (v.getId() == R.id.btn_div) {
-            func = service.divide(a, b);
-        }
+        else if (v.getId() == R.id.btn_sub)
+            call = service.subtract(a, txt_b.getText().toString());
 
-        if (func == null) return;
+        else if (v.getId() == R.id.btn_mul)
+            call = service.multiply(a, txt_b.getText().toString());
+
+        else if (v.getId() == R.id.btn_div)
+            call = service.divide(a, txt_b.getText().toString());
+
+        else if (v.getId() == R.id.button_sin)
+            call = service.sin(a);
+
+        else if (v.getId() == R.id.button_cos)
+            call = service.cos(a);
+
+        else if (v.getId() == R.id.button_tan)
+            call = service.tan(a);
+
+        else if (v.getId() == R.id.button_kor)
+            call = service.sqrt(a);
+
+        if (call == null) return;
 
         try {
-            String res = func.execute().body();
-            txt_res.setText(res);
-        } catch (IOException e) {
+            txt_res.setText(call.execute().body());
+        } catch (Exception e) {
             txt_res.setText("Ошибка");
         }
     }
